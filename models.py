@@ -30,3 +30,6 @@ class User(db.Model):
     def delete(self):
         db.session.delete(self)
         db.session.commit()
+
+    def commit(self):
+        db.session.commit()

@@ -18,7 +18,7 @@ def register_user():
     existing_user = User.get_user_by_username(username=data.get("username"))
 
     if existing_user is not None:
-        return jsonify({"error": "User already exists"}), 409
+        return jsonify({"error": "User already exists", "existing_user": existing_user.username}), 409
 
     new_user = User(username=data.get("username"), email=data.get("email"))
 

@@ -31,3 +31,35 @@ def get_all_users():
         )
 
    # return jsonify({"message": "You are not authorized to access this"}), 401
+
+@user_bp.put("/updateEmail")
+@jwt_required()
+def update_email_id():
+    data = request.get_json()
+    current_user = User.get_user_by_username(username=data.get("username"))
+    if current_user is None:
+        return jsonify({"error": "User name incorrect"}), 409
+    old_email = current_user.email
+    current_user.email = data.get("email")
+    current_user.commit()
+    return jsonify({
+        "message": "Email updated successfully",
+        "old email": old_email,
+        "updated email": current_user.email
+    }, 200)
+
+
+@user_bp.delete("/deleteFitnessAccount")
+@jwt_required()
+def delete_fit_account():
+    data = request.get_json()
+    current_user = User.get_user_by_username(username=data.get("username"))
+    if current_user is None:
+        return jsonify({"error": "User name incorrect"}), 409
+    current_user.delete()
+    return jsonify({
+        "message": "Account deleted"
+    }, 204)
+
+
+
