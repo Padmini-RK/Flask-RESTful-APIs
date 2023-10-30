@@ -31,9 +31,9 @@ flask shell
 In the interactive shell run the following
 Python 3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)] on win32
 App: main
-Instance: C:\Users\jod35\Documents\coding\JWT Auth flask\instance
->>> from models import User
->>> db.create_all()
+Instance:
+from models import User
+db.create_all()
 
 
 To run application use flask run
