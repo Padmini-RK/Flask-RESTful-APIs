@@ -1,4 +1,4 @@
-About
+
 A repo to demonstrate implementation of JWT Authentication, CURD operations and file upload for a health and fitness application using Flask REST APIs.
 
 Team members:
