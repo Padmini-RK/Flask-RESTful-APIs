@@ -45,15 +45,4 @@ def upload_fitness_file():
                 "error": "File is larger than 1MB"
             }, 400)
 
-@file_upload_bp.get("/files/<filename>")
-def get_uploaded_file(filename):
-    try:
-        file_path = os.path.join('fitnessFiles', filename)
-        return send_file(file_path, as_attachment=True)
-    except FileNotFoundError:
-        return jsonify({
-            "error": "File not found"
-        }, 404
-
-        
 
